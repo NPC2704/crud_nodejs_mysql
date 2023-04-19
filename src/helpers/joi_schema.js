@@ -12,3 +12,4 @@ export const price = joi.number().required();
 export const available = joi.number().required();
 export const category_code = joi.string().uppercase().alphanum().required(); // alphanum nghia la k chua ki tu dac biet
 export const image = joi.string().required();
+export const bid = joi.string().required();

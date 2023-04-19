@@ -83,10 +83,13 @@ export const updateBooks = ({ id, ...body }, fileData) =>
       });
       console.log(1246);
       resolve({
-        err: response[1] ? 0 : 1,
-        mes: response[1] ? "Create" : "Cannot create new books",
+        err: response[0] > 0 ? 0 : 1,
+        mes:
+          response[0] > 0
+            ? `${response[0]} book updated`
+            : "Cannot update new books/Book ID not found",
       });
-      if (fileData && !response[1])
+      if (fileData && response[0] === 0)
         cloudinary.uploader.destroy(fileData.filename);
     } catch (error) {
       reject(error);
