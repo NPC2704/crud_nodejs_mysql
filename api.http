@@ -1,0 +1,58 @@
+GET http://localhost:5000
+###
+GET  http://localhost:5000/api/v1/user/
+
+###
+POST http://localhost:5000/api/v1/auth/register
+Content-Type: application/json
+
+{
+    "email": "congdessptrai@gmail.com",
+    "password": "112345"
+    
+}
+
+###
+POST http://localhost:5000/api/v1/auth/login
+Content-Type: application/json
+
+{
+    "email": "npc.it.dev@gmail.com",
+    "password": "123123"
+}
+
+
+
+
+####### truong hop hai la admin
+GET http://localhost:5000/api/v1/user/ 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiZW1haWwiOiJucGMuaXQuZGV2QGdtYWlsLmNvbSIsInJvbGVfY29kZSI6IlIxIiwiaWF0IjoxNjgxNjY3MTQ0LCJleHAiOjE2ODIwOTkxNDR9.ONWstCW0Ji7L9mnymJSxAWtXPq9XGLG5OVj2SIPkm-k
+
+### truong hop khong la admin
+
+GET http://localhost:5000/api/v1/user/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiZW1haWwiOiJucGMuaXQuZGV2QGdtYWlsLmNvbSIsInJvbGVfY29kZSI6IlIzIiwiaWF0IjoxNjgwNzk1Mjc2LCJleHAiOjE2ODEyMjcyNzZ9.tQG8G-JjfvCZh1TXlC9vFb5G9xjcruJuSz2XZPIUBNQ
+
+
+
+### insert product
+GET http://localhost:5000/api/v1/insert/
+
+
+### get book theo ten book
+GET http://localhost:5000/api/v1/book/
+
+
+### sap xep gia tien sach ( lay gia sach giam dan) them limit=2 la lay ra 2 san pham , page=2 là xem trang thứ 2
+GET http://localhost:5000/api/v1/book/?order[]=price&order[]=DESC
+###
+GET http://localhost:5000/api/v1/book/?order[]=price&order[]=DESC&limit=2
+###
+GET http://localhost:5000/api/v1/book/?order[]=price&order[]=DESC&limit=2&page=2
+### available là số lượng hàng
+GET http://localhost:5000/api/v1/book/?available=1
+### tim so luong trong khoang 
+GET http://localhost:5000/api/v1/book/?available[]=5&available[]=10
+
+### tong hop
+GET http://localhost:5000/api/v1/book/?order[]=price&order[]=DESC&limit=2&page=3&name=of
